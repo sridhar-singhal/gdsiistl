@@ -33,11 +33,33 @@ gdsii_file_path = sys.argv[1]
 
 # choose which GDSII layers to use
 layerstack = {
-    # layernumber: (zmin, zmax, 'layername'),
-    1: (0, 550, 'substrate'),
-    3: (552, 592, 'soi'),
-    6: (592, 593, 'metal'),
+    # (layernumber, datatype) : (zmin, zmax, 'layername'),
+    
+
+    (64,20): (0, 0.1, 'nwell'),
+    (65,20): (0, 0.1, 'diff'),
+    (66,20): (0, 0.1, 'poly'),
+    (67,20): (0, 0.1, 'li1'),
+    
+    (68,20): (0, 0.1, 'met1'),
+    (69,20): (0, 0.1, 'met2'),
+    (70,20): (0, 0.1, 'met3'),
+    (71,20): (0, 0.1, 'met4'),
+    (72,20): (0, 0.1, 'met5'),
+
+    (83,44): (0, 0.1, 'text'),
+
+    (66,44): (0, 0.1, 'licon'),
+    (67,44): (0, 0.1, 'mcon'),
+    (68,44): (0, 0.1, 'via'),
+    (69,44): (0, 0.1, 'via2'),
+    (70,44): (0, 0.1, 'via3'),
+    (71,44): (0, 0.1, 'via4'),
 }
+
+
+
+
 
 ########## INPUT ##############################################################
 
@@ -69,7 +91,7 @@ for cell in cells: # loop through cells to read paths and polygons
 
     # loop through paths in cell
     for path in cell.paths:
-        lnum = path.layers[0] # GDSII layer number
+        lnum = (path.layers[0],path.datatypes[0]) # GDSII layer number
         # create empty array to hold layer polygons if it doesn't yet exist
         layers[lnum] = [] if not lnum in layers else layers[lnum]
         # add paths (converted to polygons) that layer
@@ -78,7 +100,7 @@ for cell in cells: # loop through cells to read paths and polygons
 
     # loop through polygons (and boxes) in cell
     for polygon in cell.polygons:
-        lnum = polygon.layers[0] # same as before...
+        lnum = (polygon.layers[0],polygon.datatypes[0]) # same as before...
         layers[lnum] = [] if not lnum in layers else layers[lnum]
         for poly in polygon.polygons:
             layers[lnum].append((poly, None, False))
