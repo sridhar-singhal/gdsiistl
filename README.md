@@ -31,7 +31,7 @@ The modules `gdspy` and `triangle` compile C libraries, which may cause trouble 
 Finally:
 
 ```
-git clone https://github.com/dteal/gdsiistl
+git clone https://github.com/mbalestrini/gdsiistl
 ```
 
 # Usage
