@@ -4,7 +4,7 @@ Basically the `datatype` was added to be able to identify the different layers.
 It also includes in the process some of the more common SDK130 layers (nwell, diff, poly, li1, etc) 
 
 Here's a reference of the SKY130 GDS layer/datatype ids in case you need to add other layers to the process:
-https://skywater-pdk.readthedocs.io/en/latest/rules/layers.html?highlight=layers#gds-layers-information
+https://skywater-pdk.readthedocs.io/en/main/rules/layers.html#gds-layers-information
 
 
 Original gdsiistl README file:
