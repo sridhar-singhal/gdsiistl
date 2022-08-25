@@ -164,7 +164,7 @@ for layer_number, polygons in layers.items():
         # this confuses the triangulation library, which fills the holes
         # with extra triangles. Avoid this by moving each edge back a
         # very small amount so that no two edges of the same polygon overlap.
-        delta = 0.01 # inset each vertex by this much (smaller has broken one file)
+        delta = 0.00001 # inset each vertex by this much (smaller has broken one file)
         points_i = polygon # get list of points
         points_j = np.roll(points_i, -1, axis=0) # shift by 1
         points_k = np.roll(points_i, 1, axis=0) # shift by -1
@@ -193,7 +193,7 @@ for layer_number, polygons in layers.items():
         # the original edge and the delta-shifted edge, as outside the polygon.
         # These parts will be removed from the triangulation, and this solves
         # just this case with no adverse affects elsewhere.
-        hole_delta = 0.001 # small fraction of delta
+        hole_delta = 0.00001 # small fraction of delta
         holes = 0.5*(points_j+points_i) - hole_delta*delta*normal_ij
         # HOWEVER: sometimes this causes a segmentation fault in the triangle
         # library. I've observed this as a result of certain various polygons.
