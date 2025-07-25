@@ -6,7 +6,6 @@ It also includes in the process some of the more common SDK130 layers (nwell, di
 Here's a reference of the SKY130 GDS layer/datatype ids in case you need to add other layers to the process:
 https://skywater-pdk.readthedocs.io/en/main/rules/layers.html#gds-layers-information
 
-
 Original gdsiistl README file:
 
 # gdsiistl
@@ -26,7 +25,18 @@ pip install numpy-stl
 pip install triangle
 ```
 
-The modules `gdspy` and `triangle` compile C libraries, which may cause trouble on Windows; it might require you to first install Microsoft Visual C++ Build Tools (e.g., from https://visualstudio.microsoft.com/downloads).
+The modules `gdspy` and `triangle` compile C libraries, which may cause trouble on Windows; it might require you to first install Microsoft Visual C++ Build Tools (e.g., from https://visualstudio.microsoft.com/downloads). 
+
+### Visual Studio Tools Issue
+
+Error Thrown was  Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visuals/
+      [end of output]
+
+Found that they can be installed from here: [Your Privacy Choices Opt-Out Icon](https://visualstudio.microsoft.com/visual-cpp-build-tools/) 
+
+A forum which talks more about it is [Microsoft Visual C++ 14.0 - Microsoft Q&amp;A](https://learn.microsoft.com/en-us/answers/questions/3262200/microsoft-visual-c-14-0)
+
+
 
 Finally:
 
@@ -57,5 +67,3 @@ Many programs are capable of viewing the output STL files. Blender (https://www.
 Due to a limitation of the library used to triangulate the polygonal boundaries of the GDSII geometry, the polygon borders (i.e., all geometry) are shifted slightly (by a hardcoded delta of about 0.01 units, or 10 nanometers in standard micron units) before export. Furthermore, due to another related limitation/bug (not yet completely understood; see source code comments), extra triangles are sometimes created covering holes in polygons.
 
 So the output mesh is not guaranteed to be watertight, perfectly dimensioned, or retain all polygon holes, but it should be arbitrarily close and err on the side of extra triangles, so a program (e.g., Blender) can edit the mesh by deleting faces and produce a negligibly-far-from perfect visualization.
-
-
