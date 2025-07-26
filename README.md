@@ -1,3 +1,9 @@
+Tutorial Video and Website for the same:
+
+[Maximo shows how to make beautiful GDS renders with Blender - YouTube](https://www.youtube.com/watch?v=gBjQI3GrBHU)
+
+[3D Rendering of GDS Files | Zero to ASIC Course](https://www.zerotoasiccourse.com/post/3drendering/)
+
 This version of gdsiistl is adapted to work with the GDS files generated for the SkyWater SKY130 PDK
 
 Basically the `datatype` was added to be able to identify the different layers.
@@ -34,11 +40,11 @@ Error Thrown was  Microsoft Visual C++ 14.0 or greater is required. Get it with 
 
 Found that they can be installed from here: [Your Privacy Choices Opt-Out Icon](https://visualstudio.microsoft.com/visual-cpp-build-tools/) 
 
+Just clicked on Download Build Tools, and installed all the default options.
+
 A forum which talks more about it is [Microsoft Visual C++ 14.0 - Microsoft Q&amp;A](https://learn.microsoft.com/en-us/answers/questions/3262200/microsoft-visual-c-14-0)
 
-
-
-Finally:
+### Finally:
 
 ```
 git clone https://github.com/mbalestrini/gdsiistl
